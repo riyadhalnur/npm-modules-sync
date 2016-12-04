@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Keep your globally installed NPM modules in sync across multiple machines.",
   "main": "index.js",
+  "repository": "riyadhalnur/npm-modules-sync",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -t 10000 tests/tests.js",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec tests/tests.js -t 100000 && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "keywords": [
     "npm",
@@ -14,6 +16,18 @@
     "machines",
     "computers"
   ],
-  "author": "Riyadh Al Nur <riyadhalnur@verticalaxisbd.com> (http://www.verticalaxisbd.com/)",
-  "license": "MIT"
+  "author": "Riyadh Al Nur <riyadhalnur@verticalaxisbd.com> (https://www.verticalaxisbd.com/)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=4"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "chai-as-promised": "6.0.0",
+    "coveralls": "2.11.15",
+    "eslint": "3.11.1",
+    "istanbul": "0.4.5",
+    "mocha": "3.2.0",
+    "mocha-lcov-reporter": "1.2.0"
+  }
 }
