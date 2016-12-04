@@ -1,0 +1,19 @@
+{
+  "name": "npm-modules-sync",
+  "version": "1.0.0",
+  "description": "Keep your globally installed NPM modules in sync across multiple machines.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "npm",
+    "global",
+    "modules",
+    "sync",
+    "machines",
+    "computers"
+  ],
+  "author": "Riyadh Al Nur <riyadhalnur@verticalaxisbd.com> (http://www.verticalaxisbd.com/)",
+  "license": "MIT"
+}
