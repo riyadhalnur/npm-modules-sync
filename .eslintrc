@@ -1,9 +1,8 @@
 {
-  "extends": "eslint:recommended",
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "script"
-  },
+  "extends": [
+    "plugin:flowtype/recommended"
+  ],
+  "parser": "babel-eslint",
   "rules": {
     "comma-dangle": 2, // disallow or enforce trailing commas
     "no-cond-assign": 2, // disallow assignment in conditional expressions
@@ -145,5 +144,8 @@
   },
   "globals": {
     "should": true
-  }
+  },
+  "plugins": [
+    "flowtype"
+  ]
 }

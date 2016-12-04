@@ -6,6 +6,9 @@
   "repository": "riyadhalnur/npm-modules-sync",
   "scripts": {
     "test": "mocha -t 10000 tests/tests.js",
+    "lint": "eslint src/**",
+    "flow": "flow check",
+    "build": "npm run flow && npm run lint && flow-remove-types src/ --out-dir build/",
     "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec tests/tests.js -t 100000 && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "keywords": [
@@ -22,11 +25,14 @@
     "node": ">=4"
   },
   "devDependencies": {
+    "babel-eslint": "7.1.1",
     "chai": "3.5.0",
     "chai-as-promised": "6.0.0",
     "coveralls": "2.11.15",
     "eslint": "3.11.1",
+    "eslint-plugin-flowtype": "2.29.1",
     "flow-bin": "0.36.0",
+    "flow-remove-types": "1.0.5",
     "istanbul": "0.4.5",
     "mocha": "3.2.0",
     "mocha-lcov-reporter": "1.2.0"
