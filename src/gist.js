@@ -11,7 +11,7 @@ const createGist = (token: string): Promise<Object> => {
       token: token,
       method: 'POST',
       body: { files: {
-        'packages.json': {
+        'modules.json': {
           content: {}
         }
       }}
@@ -29,7 +29,7 @@ const updateGist = (token: string, gistId: string): Promise<Object> => {
       token: token,
       method: 'PATCH',
       body: { files: {
-        'packages.json': {
+        'modules.json': {
           content: {}
         }
       }}
@@ -41,7 +41,21 @@ const updateGist = (token: string, gistId: string): Promise<Object> => {
   });
 };
 
+const readGist = (token: string, gistId: string): Promise<Object> => {
+  return new Promise((resolve, reject) => {
+    gist(`${endpoint}/${gistId}`, {
+      token: token,
+      method: 'GET'
+    }).then(result => {
+      resolve(result.body);
+    }).catch(err => {
+      reject(err);
+    });
+  });
+};
+
 module.exports = {
   create: createGist,
-  update: updateGist
+  update: updateGist,
+  read: readGist
 };
