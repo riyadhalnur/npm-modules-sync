@@ -19,7 +19,7 @@ const createGist = (token: string, packages: Object): Promise<Object> => {
       method: 'POST',
       body: { files: {
         'modules.json': {
-          content: packages
+          content: JSON.stringify(packages)
         }
       }}
     }).then(result => {
@@ -45,7 +45,7 @@ const updateGist = (token: string, gistId: string, packages: Object): Promise<Ob
       method: 'PATCH',
       body: { files: {
         'modules.json': {
-          content: packages
+          content: JSON.stringify(packages)
         }
       }}
     }).then(result => {
