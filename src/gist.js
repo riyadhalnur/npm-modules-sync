@@ -5,14 +5,14 @@ const gist = require('gh-got');
 
 const endpoint = 'https://api.github.com/gists';
 
-const createGist = (token: string): Promise<Object> => {
+const createGist = (token: string, packages: Object): Promise<Object> => {
   return new Promise((resolve, reject) => {
     gist(endpoint, {
       token: token,
       method: 'POST',
       body: { files: {
         'modules.json': {
-          content: {}
+          content: packages
         }
       }}
     }).then(result => {
@@ -23,14 +23,14 @@ const createGist = (token: string): Promise<Object> => {
   });
 };
 
-const updateGist = (token: string, gistId: string): Promise<Object> => {
+const updateGist = (token: string, gistId: string, packages: Object): Promise<Object> => {
   return new Promise((resolve, reject) => {
     gist(`${endpoint}/${gistId}`, {
       token: token,
       method: 'PATCH',
       body: { files: {
         'modules.json': {
-          content: {}
+          content: packages
         }
       }}
     }).then(result => {
