@@ -38,7 +38,8 @@
     "flow-remove-types": "1.0.5",
     "istanbul": "0.4.5",
     "mocha": "3.2.0",
-    "mocha-lcov-reporter": "1.2.0"
+    "mocha-lcov-reporter": "1.2.0",
+    "nock": "9.0.2"
   },
   "dependencies": {
     "configstore": "2.1.0",
