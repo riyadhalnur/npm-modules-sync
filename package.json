@@ -2,7 +2,6 @@
   "name": "npm-modules-sync",
   "version": "1.0.0",
   "description": "Keep your globally installed NPM modules in sync across multiple machines.",
-  "main": "index.js",
   "repository": "riyadhalnur/npm-modules-sync",
   "scripts": {
     "test": "mocha -t 10000 tests/tests.js",
@@ -24,6 +23,10 @@
   "engines": {
     "node": ">=4"
   },
+  "bin": {
+    "npm-sync": "cli.js"
+  },
+  "preferGlobal": true,
   "devDependencies": {
     "babel-eslint": "7.1.1",
     "chai": "3.5.0",
