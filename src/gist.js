@@ -5,6 +5,13 @@ const gist = require('gh-got');
 
 const endpoint = 'https://api.github.com/gists';
 
+/**
+ * Creates a private gist containing a single JSON file
+ * @public
+ * @param {string} token - GitHub access token
+ * @param {Object} packages - Object of NPM packages
+ * @returns {Promise.<Object>} - Returns Promise Object
+ */
 const createGist = (token: string, packages: Object): Promise<Object> => {
   return new Promise((resolve, reject) => {
     gist(endpoint, {
@@ -23,6 +30,14 @@ const createGist = (token: string, packages: Object): Promise<Object> => {
   });
 };
 
+/**
+ * Updates an existing gist
+ * @public
+ * @param {string} token - GitHub access token
+ * @param {string} gistId - ID of gist to update
+ * @param {Object} packages - Object of NPM packages
+ * @returns {Promise.<Object>} - Returns Promise Object
+ */
 const updateGist = (token: string, gistId: string, packages: Object): Promise<Object> => {
   return new Promise((resolve, reject) => {
     gist(`${endpoint}/${gistId}`, {
@@ -41,6 +56,13 @@ const updateGist = (token: string, gistId: string, packages: Object): Promise<Ob
   });
 };
 
+/**
+ * Read the contents of a given gist
+ * @public
+ * @param {string} token - GitHub access token
+ * @param {string} gistId - ID of gist to read
+ * @returns {Promise.<Object>} - Returns Promise Object
+ */
 const readGist = (token: string, gistId: string): Promise<Object> => {
   return new Promise((resolve, reject) => {
     gist(`${endpoint}/${gistId}`, {
