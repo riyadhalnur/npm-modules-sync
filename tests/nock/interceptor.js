@@ -3,6 +3,7 @@
 const nock = require('nock');
 
 const endpoint = 'https://api.github.com';
+const headers = { 'authorization': 'token 12345' };
 const response = {
   'url': 'https://api.github.com/gists/123456789',
   'forks_url': 'https://api.github.com/gists/123456789/forks',
@@ -55,7 +56,7 @@ const response = {
         'login': 'octocat',
         'id': 1,
         'avatar_url': 'https://github.com/images/error/octocat_happy.gif',
-        'gravatar_id': '",
+        'gravatar_id': '',
         'url': 'https://api.github.com/users/octocat',
         'html_url': 'https://github.com/octocat',
         'followers_url': 'https://api.github.com/users/octocat/followers',
@@ -84,7 +85,7 @@ const response = {
         'login': 'octocat',
         'id': 1,
         'avatar_url': 'https://github.com/images/error/octocat_happy.gif',
-        'gravatar_id': '",
+        'gravatar_id': '',
         'url': 'https://api.github.com/users/octocat',
         'html_url': 'https://github.com/octocat',
         'followers_url': 'https://api.github.com/users/octocat/followers',
@@ -109,9 +110,9 @@ const response = {
   ]
 };
 
-const getGistNock = nock(endpoint).get('/gists/123456789').reply(200, response);
-const postGistNock = nock(endpoint).post('/gists').reply(201, response);
-const patchGistNock = nock(endpoint).patch('/gists/123456789').reply(200, response);
+const getGistNock = nock(endpoint, { reqheaders: headers }).get('/gists/123456789').reply(200, response);
+const postGistNock = nock(endpoint, { reqheaders: headers }).post('/gists').reply(201, response);
+const patchGistNock = nock(endpoint, { reqheaders: headers }).patch('/gists/123456789').reply(200, response);
 
 module.exports = {
   get: getGistNock,
