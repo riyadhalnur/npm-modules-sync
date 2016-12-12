@@ -114,14 +114,14 @@ const response = {
 /* eslint-enable */
 
 const nocks = nock(endpoint, { reqheaders: headers })
-                  .persist()
-                  .get('/gists/123456789')
-                  .reply(200, response)
-                  .post('/gists', (body) => {
-                    return typeof body.files['modules.json'].content === 'string';
-                  })
-                  .reply(201, response)
-                  .patch('/gists/123456789')
-                  .reply(200, response);
+                .persist()
+                .get('/gists/123456789')
+                .reply(200, response)
+                .post('/gists', (body) => {
+                  return typeof body.files['modules.json'].content === 'string';
+                })
+                .reply(201, response)
+                .patch('/gists/123456789')
+                .reply(200, response);
 
 module.exports = nocks;
