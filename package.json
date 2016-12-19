@@ -39,7 +39,9 @@
     "istanbul": "0.4.5",
     "mocha": "3.2.0",
     "mocha-lcov-reporter": "1.2.0",
-    "nock": "9.0.2"
+    "nock": "9.0.2",
+    "sinon": "1.17.6",
+    "sinon-as-promised": "4.0.2"
   },
   "dependencies": {
     "configstore": "2.1.0",
