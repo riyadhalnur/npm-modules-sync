@@ -7,7 +7,7 @@
     "test": "mocha -t 10000 tests/tests.js",
     "lint": "eslint src/**",
     "flow": "flow check",
-    "build": "npm run flow && npm run lint && flow-remove-types src/ --out-dir build/",
+    "build": "npm run flow && npm run lint && mkdir -p build && flow-remove-types src/ --out-dir build/",
     "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec tests/tests.js -t 100000 && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "keywords": [
