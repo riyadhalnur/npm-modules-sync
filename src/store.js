@@ -1,7 +1,7 @@
 // @flow
 'use strict';
 
-const Configstore = require('configstore');
+const Configstore = require('conf');
 const pkg = require('../package.json');
 
-module.exports = new Configstore(pkg.name);
+module.exports = new Configstore({ configName: pkg.name });
