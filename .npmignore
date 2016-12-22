@@ -1,0 +1,13 @@
+# Ignored dirs
+src
+img
+flow-typed
+
+# Dot files
+.travis.yml
+appveyor.yml
+.hound.yml
+.flowconfig
+
+# Other files
+CONTRIBUTING.md
