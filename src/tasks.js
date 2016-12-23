@@ -60,8 +60,29 @@ const upTask = new Listr([
   }
 ]);
 
+const machineSetupTask = new Listr([
+  {
+    title: 'Writing configuration to disk',
+    task: context => {
+      store.set('token', context.token);
+      store.set('gistId', context.gistId);
+
+      setTimeout(() => {
+        Promise.resolve('Done');
+      }, 1000);
+    }
+  },
+  {
+    title: 'Fetching information from GitHub',
+    task: () => {
+      return dlTask;
+    }
+  }
+]);
+
 module.exports = {
   init: initTask,
+  machineSetup: machineSetupTask,
   download: dlTask,
   upload: upTask
 };
