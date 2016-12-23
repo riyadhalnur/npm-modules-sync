@@ -1,6 +1,6 @@
 ![Logo](img/logo.png)  
 
-[![Coverage Status](https://coveralls.io/repos/github/riyadhalnur/npm-modules-sync/badge.svg?branch=master)](https://coveralls.io/github/riyadhalnur/npm-modules-sync?branch=master) [![Build Status](https://travis-ci.org/riyadhalnur/npm-modules-sync.svg?branch=master)](https://travis-ci.org/riyadhalnur/npm-modules-sync) [![Build status](https://ci.appveyor.com/api/projects/status/7ndfb8ekaa27ajf1/branch/master?svg=true)](https://ci.appveyor.com/project/riyadhalnur/npm-modules-sync/branch/master) [![Dependency Status](https://dependencyci.com/github/riyadhalnur/npm-modules-sync/badge)](https://dependencyci.com/github/riyadhalnur/npm-modules-sync)  
+[![Coverage Status](https://coveralls.io/repos/github/riyadhalnur/npm-modules-sync/badge.svg?branch=master)](https://coveralls.io/github/riyadhalnur/npm-modules-sync?branch=master) [![Build Status](https://travis-ci.org/riyadhalnur/npm-modules-sync.svg?branch=master)](https://travis-ci.org/riyadhalnur/npm-modules-sync) [![Build status](https://ci.appveyor.com/api/projects/status/wot1639xtubej0j9?svg=true)](https://ci.appveyor.com/project/riyadhalnur/npm-modules-sync) [![Dependency Status](https://dependencyci.com/github/riyadhalnur/npm-modules-sync/badge)](https://dependencyci.com/github/riyadhalnur/npm-modules-sync)  
 
 NPM Modules Sync
 =================  
@@ -18,13 +18,14 @@ If you are using [Yarn](https://yarnpkg.com/):
 ### Usage  
 ```shell
 Usage
-	  $ npm-sync <input>
+	  $ npm-sync <input>  
+
 	Options
-    -t, --token Your GitHub token.
-    -i, --id The Gist ID that is used by this module.
-	  -h, --help Show this help message.
-    -v, --version Show version information.
-	Examples
+    -t, --token Your GitHub token.  
+    -i, --id The Gist ID that is used by this module.  
+	  -h, --help Show this help message.  
+    -v, --version Show version information.  
+	Examples  
 	  $ npm-sync init -t 123e4567f89
     $ npm-sync init -t 123e4567f89 -i 123456789
     $ npm-sync download
