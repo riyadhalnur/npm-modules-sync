@@ -121,7 +121,9 @@ const nocks = nock(endpoint, { reqheaders: headers })
                   return typeof body.files['modules.json'].content === 'string';
                 })
                 .reply(201, response)
-                .patch('/gists/123456789')
+                .patch('/gists/123456789', (body) => {
+                  return typeof body.files['modules.json'].content === 'string';
+                })
                 .reply(200, response);
 
 module.exports = nocks;
