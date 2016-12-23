@@ -4,6 +4,31 @@
 
 NPM Modules Sync
 =================  
+> Keep your global NPM packages in sync between machines.  
+
+**TL;DR** While NVM and the likes let you keep packages in sync between multiple version, 
+if you develop across multiple machines, you can use this module to keep your global packages in sync.  
+
+### Installation  
+`npm install -g npm-modules-sync`  
+
+If you are using [Yarn](https://yarnpkg.com/):  
+`yarn global add npm-modules-sync`  
+
+### Usage  
+```shell
+Usage
+	  $ npm-sync <input>
+	Options
+    -t, --token Your GitHub token.
+    -i, --id The Gist ID that is used by this module.
+	  -h, --help Show this help message.
+    -v, --version Show version information.
+	Examples
+	  $ npm-sync init -t 123e4567f89
+    $ npm-sync init -t 123e4567f89 -i 123456789
+    $ npm-sync download
+```  
 
 ### License  
 Licensed under MIT. See [LICENSE](LICENSE) for more information.  

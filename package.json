@@ -1,7 +1,7 @@
 {
   "name": "npm-modules-sync",
   "version": "1.0.0",
-  "description": "Keep your globally installed NPM modules in sync across multiple machines.",
+  "description": "Keep your global NPM packages in sync between machines.",
   "repository": "riyadhalnur/npm-modules-sync",
   "scripts": {
     "test": "mocha -t 10000 tests/tests.js",
