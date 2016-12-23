@@ -9,17 +9,16 @@ const endpoint = 'https://api.github.com/gists';
  * Creates a private gist containing a single JSON file
  * @public
  * @param {string} token - GitHub access token
- * @param {Object} packages - Object of NPM packages
  * @returns {Promise.<Object>} - Returns Promise Object
  */
-const createGist = (token: string, packages: Object): Promise<Object> => {
+const createGist = (token: string): Promise<Object> => {
   return new Promise((resolve, reject) => {
     gist(endpoint, {
       token: token,
       method: 'POST',
       body: { files: {
         'modules.json': {
-          content: JSON.stringify(packages)
+          content: JSON.stringify({})
         }
       }}
     }).then(result => {
@@ -69,7 +68,7 @@ const readGist = (token: string, gistId: string): Promise<Object> => {
       token: token,
       method: 'GET'
     }).then(result => {
-      resolve(result.body);
+      resolve(result.body.files['modules.json']);
     }).catch(err => {
       reject(err);
     });
