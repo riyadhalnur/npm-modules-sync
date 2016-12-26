@@ -6,13 +6,10 @@ const store = require('./store');
 const modules = require('./modules');
 const gist = require('./gist');
 
-const token = store.get('token');
-const gistId = store.get('gistId');
-
 const dlTask = new Listr([
   {
     title: 'Get list of packages from GitHub',
-    task: context => gist.read(token, gistId).then(res => {
+    task: context => gist.read(context.token, context.gistId).then(res => {
       try {
         context.packages = JSON.parse(res.content);
         return Promise.resolve('Done');
@@ -36,7 +33,7 @@ const upTask = new Listr([
   },
   {
     title: 'Store list of packages to GitHub',
-    task: context => gist.update(token, gistId, context.packages)
+    task: context => gist.update(context.token, context.gistId, context.packages)
   }
 ]);
 

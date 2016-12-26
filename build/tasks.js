@@ -6,33 +6,10 @@ const store = require('./store');
 const modules = require('./modules');
 const gist = require('./gist');
 
-const token = store.get('token');
-const gistId = store.get('gistId');
-
-const initTask = new Listr([
-  {
-    title: 'Create a new gist on GitHub',
-    task: context => gist.create(context.token).then(res => {
-      context.gistId = res.id;
-    })
-  },
-  {
-    title: 'Store details in config file',
-    task: context => {
-      store.set('token', context.token);
-      store.set('gistId', context.gistId);
-
-      setTimeout(() => {
-        Promise.resolve('Done');
-      }, 1000);
-    }
-  }
-]);
-
 const dlTask = new Listr([
   {
     title: 'Get list of packages from GitHub',
-    task: context => gist.read(token, gistId).then(res => {
+    task: context => gist.read(context.token, context.gistId).then(res => {
       try {
         context.packages = JSON.parse(res.content);
         return Promise.resolve('Done');
@@ -56,11 +33,37 @@ const upTask = new Listr([
   },
   {
     title: 'Store list of packages to GitHub',
-    task: context => gist.update(token, gistId, context.packages)
+    task: context => gist.update(context.token, context.gistId, context.packages)
   }
 ]);
 
-const machineSetupTask = new Listr([
+const initMachineTask = new Listr([
+  {
+    title: 'Create a new gist on GitHub',
+    task: context => gist.create(context.token).then(res => {
+      context.gistId = res.id;
+    })
+  },
+  {
+    title: 'Store details in config file',
+    task: context => {
+      store.set('token', context.token);
+      store.set('gistId', context.gistId);
+
+      setTimeout(() => {
+        Promise.resolve('Done');
+      }, 1000);
+    }
+  },
+  {
+    title: 'Backing up to GitHub',
+    task: () => {
+      return upTask;
+    }
+  }
+]);
+
+const initSlaveTask = new Listr([
   {
     title: 'Writing configuration to disk',
     task: context => {
@@ -81,8 +84,8 @@ const machineSetupTask = new Listr([
 ]);
 
 module.exports = {
-  init: initTask,
-  machineSetup: machineSetupTask,
+  init: initMachineTask,
+  initSlave: initSlaveTask,
   download: dlTask,
   upload: upTask
 };
