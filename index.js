@@ -10,9 +10,11 @@ const tasks = require('./build/tasks');
 module.exports = (opts, flags) => {
   switch (opts) {
   case 'upload':
+  case 'up':
     tasks.upload.run({ token: store.get('token'), gistId: store.get('gistId') });
     break;
   case 'download':
+  case 'down':
     tasks.download.run({ token: store.get('token'), gistId: store.get('gistId') });
     break;
   case 'init':
