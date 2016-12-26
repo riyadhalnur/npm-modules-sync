@@ -19,7 +19,7 @@ module.exports = (opts, flags) => {
     if (flags.token && !flags.id) {
       tasks.init.run({ token: flags.token }).then(ctx => {
         console.log(`Your Gist ID is ${chalk.yellow(ctx.gistId)}. ${chalk.red.bold('Please')} note it down.
-        You will need this when configuring machines to sync to.`);
+        You will need this when configuring machines ${emoji.get('computer')} to sync to.`);
       }).catch(err => {
         console.log(err);
       });
