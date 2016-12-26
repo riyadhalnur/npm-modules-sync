@@ -17,3 +17,10 @@ test_script:
 version: 1.0.{build}
 skip_tags: true
 build: off
+notifications:
+  - provider: Email
+    to:
+      - riyadhalnur@verticalaxisbd.com
+    on_build_success: false
+    on_build_failure: true
+    on_build_status_changed: true
