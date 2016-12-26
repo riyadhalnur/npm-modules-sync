@@ -26,7 +26,10 @@ const getModules = ()                           => {
  */
 const installModules = (packages        )                  => {
   return new Promise((resolve, reject) => {
-    let args = ['install', '-g'].concat(Object.keys(packages.dependencies));
+    let args = ['install', '-g']
+                .concat(Object.keys(packages.dependencies))
+                .filter(i => { return i !== 'npm' && i !== 'npm-modules-sync'; }); // eslint-disable-line
+
     execa('npm', args).then(result => {
       resolve(result.stdout);
     }).catch(err => {
