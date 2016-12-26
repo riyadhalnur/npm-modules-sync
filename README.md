@@ -17,24 +17,31 @@ If you are using [Yarn](https://yarnpkg.com/):
 
 ### Usage  
 ```shell
-Usage
-	  $ npm-sync <input>  
+  Usage
+    $ npm-sync <input> [options]
 
-	Options
-    -t, --token Your GitHub token.  
-    -i, --id The Gist ID that is used by this module.  
-	  -h, --help Show this help message.  
-    -v, --version Show version information.  
-	Examples  
-	  $ npm-sync init -t 123e4567f89
+  Options
+    -t, --token Your GitHub token.
+    -i, --id ID of Gist that is used by this module.
+    -h, --help Show this help message.
+    -v, --version Show version information.
+
+  Examples
+    $ npm-sync init -t 123e4567f89
     $ npm-sync init -t 123e4567f89 -i 123456789
     $ npm-sync download
 ```  
+
+### Documentation  
+Read the [DOCUMENTATION](docs/docs.md)  
+
+### Contributing  
+Read the [CONTRIBUTING](CONTRIBUTING.md) guide for information.  
 
 ### License  
 Licensed under MIT. See [LICENSE](LICENSE) for more information.  
 
 ### Issues  
-Report a bug in issues.   
+Report a bug in [issues](https://github.com/riyadhalnur/npm-modules-sync/issues).   
 
 Made with love in Dhaka, Bangladesh by [Riyadh Al Nur](https://verticalaxisbd.com)

@@ -2,6 +2,7 @@
 src
 img
 flow-typed
+docs
 
 # Dot files
 .travis.yml
