@@ -32,7 +32,7 @@
     "chai": "3.5.0",
     "chai-as-promised": "6.0.0",
     "coveralls": "2.11.15",
-    "eslint": "3.12.2",
+    "eslint": "3.13.0",
     "eslint-plugin-flowtype": "2.29.2",
     "flow-bin": "0.37.4",
     "flow-remove-types": "1.1.2",
