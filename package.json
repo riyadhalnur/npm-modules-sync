@@ -34,7 +34,7 @@
     "coveralls": "2.11.15",
     "eslint": "3.13.1",
     "eslint-plugin-flowtype": "2.30.0",
-    "flow-bin": "0.37.4",
+    "flow-bin": "0.38.0",
     "flow-remove-types": "1.1.2",
     "istanbul": "0.4.5",
     "mocha": "3.2.0",
