@@ -1,6 +1,6 @@
 {
   "name": "npm-modules-sync",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Keep your global NPM packages in sync between machines.",
   "repository": "riyadhalnur/npm-modules-sync",
   "scripts": {
