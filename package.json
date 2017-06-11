@@ -30,7 +30,7 @@
   "devDependencies": {
     "babel-eslint": "7.1.1",
     "chai": "3.5.0",
-    "chai-as-promised": "6.0.0",
+    "chai-as-promised": "7.0.0",
     "coveralls": "2.11.16",
     "eslint": "3.15.0",
     "eslint-plugin-flowtype": "2.30.0",
