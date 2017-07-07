@@ -50,7 +50,7 @@
     "gh-got": "5.0.0",
     "listr": "0.10.0",
     "meow": "3.7.0",
-    "node-emoji": "1.5.1",
+    "node-emoji": "1.6.0",
     "update-notifier": "2.1.0"
   }
 }
