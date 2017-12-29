@@ -37,7 +37,7 @@
     "flow-bin": "0.39.0",
     "flow-remove-types": "1.2.0",
     "istanbul": "0.4.5",
-    "mocha": "3.2.0",
+    "mocha": "4.1.0",
     "mocha-lcov-reporter": "1.2.0",
     "nock": "9.0.6",
     "sinon": "1.17.7",
