@@ -9,6 +9,8 @@ docs
 appveyor.yml
 .hound.yml
 .flowconfig
+.editorconfig
+.eslintrc
 
 # Other files
 CONTRIBUTING.md
@@ -53,3 +55,6 @@ jspm_packages
 
 # Github issues templates folder
 .github
+
+# Test folder
+tests
