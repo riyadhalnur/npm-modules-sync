@@ -21,7 +21,8 @@ const response = {
     url: 'https://api.github.com/users/octocat',
     html_url: 'https://github.com/octocat',
     followers_url: 'https://api.github.com/users/octocat/followers',
-    following_url: 'https://api.github.com/users/octocat/following{/other_user}',
+    following_url:
+      'https://api.github.com/users/octocat/following{/other_user}',
     gists_url: 'https://api.github.com/users/octocat/gists{/gist_id}',
     starred_url: 'https://api.github.com/users/octocat/starred{/owner}{/repo}',
     subscriptions_url: 'https://api.github.com/users/octocat/subscriptions',
@@ -37,7 +38,8 @@ const response = {
     'modules.json': {
       size: 28,
       filename: 'modules.json',
-      raw_url: 'https://gist.githubusercontent.com/octocat/123456789/raw/8c4d2d43d178df44f4c03a7f2ac0ff512853564e/modules.json',
+      raw_url:
+        'https://gist.githubusercontent.com/octocat/123456789/raw/8c4d2d43d178df44f4c03a7f2ac0ff512853564e/modules.json',
       type: 'application/json',
       language: 'JSON',
       truncated: false,
@@ -62,14 +64,17 @@ const response = {
         url: 'https://api.github.com/users/octocat',
         html_url: 'https://github.com/octocat',
         followers_url: 'https://api.github.com/users/octocat/followers',
-        following_url: 'https://api.github.com/users/octocat/following{/other_user}',
+        following_url:
+          'https://api.github.com/users/octocat/following{/other_user}',
         gists_url: 'https://api.github.com/users/octocat/gists{/gist_id}',
-        starred_url: 'https://api.github.com/users/octocat/starred{/owner}{/repo}',
+        starred_url:
+          'https://api.github.com/users/octocat/starred{/owner}{/repo}',
         subscriptions_url: 'https://api.github.com/users/octocat/subscriptions',
         organizations_url: 'https://api.github.com/users/octocat/orgs',
         repos_url: 'https://api.github.com/users/octocat/repos',
         events_url: 'https://api.github.com/users/octocat/events{/privacy}',
-        received_events_url: 'https://api.github.com/users/octocat/received_events',
+        received_events_url:
+          'https://api.github.com/users/octocat/received_events',
         type: 'User',
         site_admin: false
       },
@@ -81,7 +86,8 @@ const response = {
   ],
   history: [
     {
-      url: 'https://api.github.com/gists/123456789/57a7f021a713b1c5a6a199b54cc514735d2d462f',
+      url:
+        'https://api.github.com/gists/123456789/57a7f021a713b1c5a6a199b54cc514735d2d462f',
       version: '57a7f021a713b1c5a6a199b54cc514735d2d462f',
       user: {
         login: 'octocat',
@@ -91,14 +97,17 @@ const response = {
         url: 'https://api.github.com/users/octocat',
         html_url: 'https://github.com/octocat',
         followers_url: 'https://api.github.com/users/octocat/followers',
-        following_url: 'https://api.github.com/users/octocat/following{/other_user}',
+        following_url:
+          'https://api.github.com/users/octocat/following{/other_user}',
         gists_url: 'https://api.github.com/users/octocat/gists{/gist_id}',
-        starred_url: 'https://api.github.com/users/octocat/starred{/owner}{/repo}',
+        starred_url:
+          'https://api.github.com/users/octocat/starred{/owner}{/repo}',
         subscriptions_url: 'https://api.github.com/users/octocat/subscriptions',
         organizations_url: 'https://api.github.com/users/octocat/orgs',
         repos_url: 'https://api.github.com/users/octocat/repos',
         events_url: 'https://api.github.com/users/octocat/events{/privacy}',
-        received_events_url: 'https://api.github.com/users/octocat/received_events',
+        received_events_url:
+          'https://api.github.com/users/octocat/received_events',
         type: 'User',
         site_admin: false
       },
@@ -114,16 +123,16 @@ const response = {
 /* eslint-enable */
 
 const nocks = nock(endpoint, { reqheaders: headers })
-                .persist()
-                .get('/gists/123456789')
-                .reply(200, response)
-                .post('/gists', (body) => {
-                  return typeof body.files['modules.json'].content === 'string';
-                })
-                .reply(201, response)
-                .patch('/gists/123456789', (body) => {
-                  return typeof body.files['modules.json'].content === 'string';
-                })
-                .reply(200, response);
+  .persist()
+  .get('/gists/123456789')
+  .reply(200, response)
+  .post('/gists', body => {
+    return typeof body.files['modules.json'].content === 'string';
+  })
+  .reply(201, response)
+  .patch('/gists/123456789', body => {
+    return typeof body.files['modules.json'].content === 'string';
+  })
+  .reply(200, response);
 
 module.exports = nocks;

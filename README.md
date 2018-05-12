@@ -30,8 +30,10 @@ If you are using [Yarn](https://yarnpkg.com/):
 
   Examples
     $ npm-sync init -t 123e4567f89
+    $ npm-sync i -t 123e4567f89
     $ npm-sync init -t 123e4567f89 -i 123456789
     $ npm-sync download
+    $ npm-sync dl
     $ npm-sync upload
     $ npm-sync up
 ```  

@@ -3,46 +3,50 @@
 const Listr = require('listr');
 
 const store = require('./store');
-const modules = require('./modules');
+const mods = require('./mods');
 const gist = require('./gist');
 
 const dlTask = new Listr([
   {
     title: 'Get list of packages from GitHub',
-    task: context => gist.read(context.token, context.gistId).then(res => {
-      try {
-        context.packages = JSON.parse(res.content);
-        return Promise.resolve('Done');
-      } catch (err) {
-        Promise.reject(new Error(err));
-      }
-    })
+    task: context =>
+      gist.read(context.token, context.gistId).then(res => {
+        try {
+          context.packages = JSON.parse(res.content);
+          return Promise.resolve('Done');
+        } catch (err) {
+          Promise.reject(new Error(err));
+        }
+      })
   },
   {
     title: 'Install npm packages globally',
-    task: context => modules.install(context.packages)
+    task: context => mods.install(context.packages)
   }
 ]);
 
 const upTask = new Listr([
   {
     title: 'Get list of globally installed npm packages',
-    task: context => modules.get().then(res => {
-      context.packages = res;
-    })
+    task: context =>
+      mods.get().then(res => {
+        context.packages = res;
+      })
   },
   {
     title: 'Store list of packages to GitHub',
-    task: context => gist.update(context.token, context.gistId, context.packages)
+    task: context =>
+      gist.update(context.token, context.gistId, context.packages)
   }
 ]);
 
 const initMachineTask = new Listr([
   {
     title: 'Create a new gist on GitHub',
-    task: context => gist.create(context.token).then(res => {
-      context.gistId = res.id;
-    })
+    task: context =>
+      gist.create(context.token).then(res => {
+        context.gistId = res.id;
+      })
   },
   {
     title: 'Store details in config file',

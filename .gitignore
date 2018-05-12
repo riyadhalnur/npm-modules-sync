@@ -38,3 +38,6 @@ jspm_packages
 
 # Github issues templates folder
 .github
+
+# Build folder
+build

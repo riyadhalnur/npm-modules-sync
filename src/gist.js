@@ -16,16 +16,20 @@ const createGist = (token: string): Promise<Object> => {
     gist(endpoint, {
       token: token,
       method: 'POST',
-      body: { files: {
-        'modules.json': {
-          content: JSON.stringify({})
+      body: {
+        files: {
+          'modules.json': {
+            content: JSON.stringify({})
+          }
         }
-      }}
-    }).then(result => {
-      resolve(result.body);
-    }).catch(err => {
-      reject(err);
-    });
+      }
+    })
+      .then(result => {
+        resolve(result.body);
+      })
+      .catch(err => {
+        reject(err);
+      });
   });
 };
 
@@ -37,21 +41,29 @@ const createGist = (token: string): Promise<Object> => {
  * @param {Object} packages - Object of NPM packages
  * @returns {Promise.<Object>} - Returns Promise Object
  */
-const updateGist = (token: string, gistId: string, packages: Object): Promise<Object> => {
+const updateGist = (
+  token: string,
+  gistId: string,
+  packages: Object
+): Promise<Object> => {
   return new Promise((resolve, reject) => {
     gist(`${endpoint}/${gistId}`, {
       token: token,
       method: 'PATCH',
-      body: { files: {
-        'modules.json': {
-          content: JSON.stringify(packages)
+      body: {
+        files: {
+          'modules.json': {
+            content: JSON.stringify(packages)
+          }
         }
-      }}
-    }).then(result => {
-      resolve(result.body);
-    }).catch(err => {
-      reject(err);
-    });
+      }
+    })
+      .then(result => {
+        resolve(result.body);
+      })
+      .catch(err => {
+        reject(err);
+      });
   });
 };
 
@@ -67,11 +79,13 @@ const readGist = (token: string, gistId: string): Promise<Object> => {
     gist(`${endpoint}/${gistId}`, {
       token: token,
       method: 'GET'
-    }).then(result => {
-      resolve(result.body.files['modules.json']);
-    }).catch(err => {
-      reject(err);
-    });
+    })
+      .then(result => {
+        resolve(result.body.files['modules.json']);
+      })
+      .catch(err => {
+        reject(err);
+      });
   });
 };
 
