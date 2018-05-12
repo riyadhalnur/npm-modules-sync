@@ -4,6 +4,7 @@
   "description": "Keep your global NPM packages in sync between machines.",
   "repository": "riyadhalnur/npm-modules-sync",
   "scripts": {
+    "install": "tabtab install --name npm-sync --auto",
     "test": "mocha -t 10000 tests/tests.js",
     "format": "prettier --single-quote --write \"*.js\" \"tests/**/**.js\" \"src/*.js\"",
     "precommit": "npm run flow && npm run lint && lint-staged",
@@ -34,6 +35,23 @@
   "bin": {
     "npm-sync": "cli.js"
   },
+  "tabtab": {
+    "npm-sync": [
+      "--help",
+      "--version",
+      "download",
+      "upload",
+      "init"
+    ],
+    "init": [
+      "--token",
+      "--id"
+    ],
+    "i": [
+      "--token",
+      "--id"
+    ]
+  },
   "preferGlobal": true,
   "devDependencies": {
     "babel-eslint": "^8.2.3",
@@ -63,6 +81,7 @@
     "listr": "^0.14.1",
     "meow": "^5.0.0",
     "node-emoji": "^1.8.1",
+    "tabtab": "^2.2.2",
     "update-notifier": "^2.5.0"
   }
 }

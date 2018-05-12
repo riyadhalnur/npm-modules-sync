@@ -8,6 +8,17 @@ const store = require('./build/store');
 const tasks = require('./build/tasks');
 
 module.exports = (opts, flags) => {
+  if (!opts) {
+    console.log(
+      `${chalk.red.bold(
+        'Please pass in a command to execute.'
+      )} For more information, pass in ${chalk.yellow(
+        '--help'
+      )} to show help information.`
+    );
+    return;
+  }
+
   switch (opts) {
     case 'upload':
     case 'up':
@@ -49,13 +60,6 @@ module.exports = (opts, flags) => {
 
       break;
     default:
-      console.log(
-        `${chalk.red.bold(
-          'Please pass in a command to execute.'
-        )} For more information, pass in ${chalk.yellow(
-          '--help'
-        )} to show help information.`
-      );
       break;
   }
 };

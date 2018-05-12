@@ -48,5 +48,7 @@ Read the complete documentation ${emoji.get(
   }
 );
 
+require('tabtab')().start();
+
 updateNotifier({ pkg }).notify();
 sync(cli.input[0], cli.flags);
