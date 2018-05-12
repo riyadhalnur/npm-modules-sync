@@ -37,9 +37,11 @@ const getModules = (): Promise<Object | string> => {
  */
 const installModules = (packages: Object): Promise<string> => {
   return new Promise((resolve, reject) => {
-    let args = ['install', '-g']
-      .concat(Object.keys(packages.dependencies))
-      .filter(i => i !== 'npm' && i !== 'npm-modules-sync');
+    let args = ['install', '-g'];
+
+    Object.keys(packages.dependencies)
+      .filter(i => i !== 'npm' && i !== 'npm-modules-sync')
+      .map(el => args.push(`${el}@${packages['dependencies'][el]['version']}`));
 
     execa('npm', args)
       .then(result => resolve(result.stdout))
