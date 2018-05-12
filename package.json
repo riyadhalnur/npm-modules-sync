@@ -10,6 +10,7 @@
     "precommit": "npm run flow && npm run lint && lint-staged",
     "lint": "eslint src/**",
     "flow": "flow check",
+    "prepublishOnly": "npm run build",
     "build": "mkdir -p build && flow-remove-types src/ --out-dir build/",
     "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec tests/tests.js -t 100000 && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
