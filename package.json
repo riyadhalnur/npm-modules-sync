@@ -24,7 +24,7 @@
   "author": "Riyadh Al Nur <riyadhalnur@verticalaxisbd.com> (https://verticalaxisbd.com/)",
   "license": "MIT",
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "lint-staged": {
     "*.{js}": [
