@@ -10,11 +10,9 @@ const execa = require('execa');
  */
 const getModules = (): Promise<Object | string> => {
   return new Promise((resolve, reject) => {
-    execa('npm', ['ls', '-g', '--depth=0', '--json=true']).then(result => {
-      resolve(JSON.parse(result.stdout));
-    }).catch(err => {
-      reject(err.stderr);
-    });
+    execa('npm', ['ls', '-g', '--depth=0', '--json=true'])
+      .then(result => resolve(JSON.parse(result.stdout)))
+      .catch(err => reject(err.stderr));
   });
 };
 
@@ -27,14 +25,12 @@ const getModules = (): Promise<Object | string> => {
 const installModules = (packages: Object): Promise<string> => {
   return new Promise((resolve, reject) => {
     let args = ['install', '-g']
-                .concat(Object.keys(packages.dependencies))
-                .filter(i => { return i !== 'npm' && i !== 'npm-modules-sync'; }); // eslint-disable-line
+      .concat(Object.keys(packages.dependencies))
+      .filter(i => i !== 'npm' && i !== 'npm-modules-sync');
 
-    execa('npm', args).then(result => {
-      resolve(result.stdout);
-    }).catch(err => {
-      reject(err.stderr);
-    });
+    execa('npm', args)
+      .then(result => resolve(result.stdout))
+      .catch(err => reject(err.stderr));
   });
 };
 
