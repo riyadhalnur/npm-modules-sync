@@ -11,7 +11,20 @@ const execa = require('execa');
 const getModules = (): Promise<Object | string> => {
   return new Promise((resolve, reject) => {
     execa('npm', ['ls', '-g', '--depth=0', '--json=true'])
-      .then(result => resolve(JSON.parse(result.stdout)))
+      .then(result => {
+        let parsedResult = JSON.parse(result.stdout);
+        let packages = Object.keys(parsedResult.dependencies).filter(
+          i => i !== 'npm' && i !== 'npm-modules-sync'
+        );
+
+        if (packages.length === 0) {
+          return reject(
+            new Error('No global packages found. Nothing to back up. Exiting!')
+          );
+        }
+
+        resolve(JSON.parse(result.stdout));
+      })
       .catch(err => reject(err.stderr));
   });
 };
