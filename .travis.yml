@@ -5,4 +5,5 @@ node_js:
   - '8'
   - '10'
 sudo: false
+before_script: "npm run build"
 after_script: "npm run coverage"

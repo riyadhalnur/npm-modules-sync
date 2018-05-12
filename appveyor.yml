@@ -12,6 +12,7 @@ install:
 test_script:
   - node --version
   - npm --version
+  - npm run build
   - npm test
 
 version: 1.0.{build}
