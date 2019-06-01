@@ -1,5 +1,14 @@
 ## Change Log
 
+### v1.2.1 (2019/06/01 05:47 +00:00)
+- [23d4f16](https://github.com/riyadhalnur/npm-modules-sync/commit/23d4f164a43ad9ba596b7c871e6a791cba0d75be) Run appveyor builds on 64-bit only (@riyadhalnur)
+- [7b56e8e](https://github.com/riyadhalnur/npm-modules-sync/commit/7b56e8e0f4ed7a12aa12747a6954f12a32643c83) Bump version and revert tabtab to old version (@riyadhalnur)
+- [771dbce](https://github.com/riyadhalnur/npm-modules-sync/commit/771dbce33d3d29bbfb058ab031c894d3aa58fd74) Drop support for old node versions (@riyadhalnur)
+- [fc4d586](https://github.com/riyadhalnur/npm-modules-sync/commit/fc4d586d4d3bf2d8fad3421b62df54e23bb4c5fd) CHORE: Update outdated deps (@riyadhalnur)
+- [59ec070](https://github.com/riyadhalnur/npm-modules-sync/commit/59ec070df3e943890ac40d6e9a710f7a139e9a57) Pre publish only npm hook (@riyadhalnur)
+- [0a7c9f1](https://github.com/riyadhalnur/npm-modules-sync/commit/0a7c9f11d1d318e46d46ba138aa4c70c0451313b) Ignore more files from NPM (@riyadhalnur)
+- [e410654](https://github.com/riyadhalnur/npm-modules-sync/commit/e41065420bb845c13c1ff00eb150233d48809f0b) Add CHANGELOG (@riyadhalnur)
+
 ### v1.2.0 (2018/05/12 11:41 +00:00)
 - [5bda536](https://github.com/riyadhalnur/npm-modules-sync/commit/5bda536dc427e393a33b81ae75298b89450a61c6) v1.2.0 (@riyadhalnur)
 - [c034bda](https://github.com/riyadhalnur/npm-modules-sync/commit/c034bda303a10ab2981764390668ad14022df7df) Drop supportr for Node v4 (@riyadhalnur)
