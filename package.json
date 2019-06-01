@@ -1,6 +1,6 @@
 {
   "name": "npm-modules-sync",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Keep your global NPM packages in sync between machines.",
   "repository": "riyadhalnur/npm-modules-sync",
   "scripts": {
@@ -25,7 +25,7 @@
   "author": "Riyadh Al Nur <riyadhalnur@verticalaxisbd.com> (https://verticalaxisbd.com/)",
   "license": "MIT",
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "lint-staged": {
     "*.{js}": [
@@ -82,7 +82,7 @@
     "listr": "0.14.3",
     "meow": "^5.0.0",
     "node-emoji": "1.10.0",
-    "tabtab": "3.0.2",
+    "tabtab": "2.2.2",
     "update-notifier": "3.0.0"
   }
 }
