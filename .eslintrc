@@ -1,7 +1,6 @@
 {
   "extends": [
-    "plugin:prettier/recommended",
-    "plugin:flowtype/recommended"
+    "plugin:prettier/recommended"
   ],
   "parser": "babel-eslint",
   "rules": {
@@ -18,7 +17,6 @@
     "should": true
   },
   "plugins": [
-    "prettier",
-    "flowtype"
+    "prettier"
   ]
 }
