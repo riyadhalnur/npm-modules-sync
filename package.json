@@ -65,7 +65,7 @@
     "eslint-plugin-prettier": "3.1.0",
     "flow-bin": "0.100.0",
     "flow-remove-types": "2.100.0",
-    "husky": "^0.14.3",
+    "husky": "^2.4.0",
     "istanbul": "0.4.5",
     "lint-staged": "8.1.7",
     "mocha": "6.1.4",
