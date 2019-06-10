@@ -4,4 +4,7 @@
 const Configstore = require('conf');
 const pkg = require('../package.json');
 
-module.exports = new Configstore({ configName: pkg.name });
+module.exports = new Configstore({
+  configName: pkg.name,
+  projectName: pkg.name
+});
