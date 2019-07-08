@@ -12,7 +12,9 @@
     "flow": "flow check",
     "prepublishOnly": "npm run build",
     "build": "mkdir -p build && flow-remove-types src/ --out-dir build/",
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec tests/tests.js -t 100000 && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec tests/tests.js -t 100000 && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [
     "npm",
@@ -83,6 +85,8 @@
     "meow": "^5.0.0",
     "node-emoji": "1.10.0",
     "tabtab": "2.2.2",
-    "update-notifier": "3.0.0"
-  }
+    "update-notifier": "3.0.0",
+    "snyk": "^1.192.4"
+  },
+  "snyk": true
 }
