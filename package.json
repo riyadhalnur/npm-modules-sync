@@ -83,6 +83,6 @@
     "meow": "^5.0.0",
     "node-emoji": "1.10.0",
     "tabtab": "2.2.2",
-    "update-notifier": "3.0.0"
+    "update-notifier": "4.0.0"
   }
 }
