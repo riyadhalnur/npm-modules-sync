@@ -8,14 +8,25 @@ NPM Modules Sync
 =================  
 > Keep your global NPM packages in sync between machines.  
 
-**TL;DR** While NVM and the likes let you keep packages in sync between multiple version, 
-if you develop across multiple machines, you can use this module to keep your global packages in sync.  
+**TL;DR** While NVM and the likes let you keep packages in sync between multiple versions, 
+if you develop across multiple machines, you can use this module to keep your global NPM packages in sync.  
 
 ### Installation  
 `npm install -g npm-modules-sync`  
 
 If you are using [Yarn](https://yarnpkg.com/):  
 `yarn global add npm-modules-sync`  
+
+### Getting started  
+1. On the machine you want to use as the source of your package list, run  
+`npm-sync init -t <your-github-token>`  
+2. Note the ID of the gist returned from the previous step once it completes  
+3. On the machine you want to sync using the the gist, run  
+`npm-sync init -t <your-github-token> -i <gist-id>`  
+4. Run `npm-sync up` subsequently on your main machine to update the list of packages  
+5. Run `npm-sync dl` subsequently on your syned machines to download the current list of global packages  
+
+**N.B** Step 1 needs to be run only once on the machine that you want to use as your source of truth. Similarly, step 3 needs to be run only once on every machine you want to keep in sync.  
 
 ### Usage  
 ```shell
@@ -38,9 +49,6 @@ If you are using [Yarn](https://yarnpkg.com/):
     $ npm-sync up
 ```  
 
-### Documentation  
-Read the [DOCUMENTATION](docs/docs.md)  
-
 ### Contributing  
 Read the [CONTRIBUTING](CONTRIBUTING.md) guide for information.  
 
@@ -50,4 +58,4 @@ Licensed under MIT. See [LICENSE](LICENSE) for more information.
 ### Issues  
 Report a bug in [issues](https://github.com/riyadhalnur/npm-modules-sync/issues).   
 
-Made with love in Dhaka, Bangladesh by [Riyadh Al Nur](https://verticalaxisbd.com)
+Made with love by [Riyadh Al Nur](https://verticalaxisbd.com)  
