@@ -24,7 +24,7 @@ module.exports = (opts, flags) => {
     case 'up':
       tasks.upload.run({
         token: store.get('token'),
-        gistId: store.get('gistId')
+        gistId: store.get('gistId'),
       });
       break;
     case 'download':
@@ -32,7 +32,7 @@ module.exports = (opts, flags) => {
     case 'dl':
       tasks.download.run({
         token: store.get('token'),
-        gistId: store.get('gistId')
+        gistId: store.get('gistId'),
       });
       break;
     case 'init':
@@ -40,9 +40,9 @@ module.exports = (opts, flags) => {
       if (flags.token && !flags.id) {
         tasks.init
           .run({
-            token: flags.token
+            token: flags.token,
           })
-          .then(ctx =>
+          .then((ctx) =>
             console.log(`
         Your Gist ID is ${chalk.yellow(ctx.gistId)}.
         ${chalk.red.bold('Please')} note it down.
@@ -50,11 +50,11 @@ module.exports = (opts, flags) => {
         ${emoji.get('computer')} to sync with.
         `)
           )
-          .catch(err => console.log(err));
+          .catch((err) => console.log(err));
       } else {
         tasks.initSlave.run({
           token: flags.token,
-          gistId: flags.id
+          gistId: flags.id,
         });
       }
 

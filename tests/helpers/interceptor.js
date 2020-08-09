@@ -31,7 +31,7 @@ const response = {
     events_url: 'https://api.github.com/users/octocat/events{/privacy}',
     received_events_url: 'https://api.github.com/users/octocat/received_events',
     type: 'User',
-    site_admin: false
+    site_admin: false,
   },
   user: null,
   files: {
@@ -43,8 +43,8 @@ const response = {
       type: 'application/json',
       language: 'JSON',
       truncated: false,
-      content: JSON.stringify({ hey: true, hello: 'world' })
-    }
+      content: JSON.stringify({ hey: true, hello: 'world' }),
+    },
   },
   truncated: false,
   comments: 0,
@@ -76,13 +76,13 @@ const response = {
         received_events_url:
           'https://api.github.com/users/octocat/received_events',
         type: 'User',
-        site_admin: false
+        site_admin: false,
       },
       url: 'https://api.github.com/gists/dee9c42e4998ce2ea439',
       id: 'dee9c42e4998ce2ea439',
       created_at: '2011-04-14T16:00:49Z',
-      updated_at: '2011-04-14T16:00:49Z'
-    }
+      updated_at: '2011-04-14T16:00:49Z',
+    },
   ],
   history: [
     {
@@ -109,16 +109,16 @@ const response = {
         received_events_url:
           'https://api.github.com/users/octocat/received_events',
         type: 'User',
-        site_admin: false
+        site_admin: false,
       },
       change_status: {
         deletions: 0,
         additions: 180,
-        total: 180
+        total: 180,
       },
-      committed_at: '2010-04-14T02:15:15Z'
-    }
-  ]
+      committed_at: '2010-04-14T02:15:15Z',
+    },
+  ],
 };
 /* eslint-enable */
 
@@ -126,11 +126,11 @@ const nocks = nock(endpoint, { reqheaders: headers })
   .persist()
   .get('/gists/123456789')
   .reply(200, response)
-  .post('/gists', body => {
+  .post('/gists', (body) => {
     return typeof body.files['modules.json'].content === 'string';
   })
   .reply(201, response)
-  .patch('/gists/123456789', body => {
+  .patch('/gists/123456789', (body) => {
     return typeof body.files['modules.json'].content === 'string';
   })
   .reply(200, response);

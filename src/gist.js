@@ -3,7 +3,7 @@
 
 const gist = require('gh-got');
 
-const endpoint = 'https://api.github.com/gists';
+const endpoint = 'gists';
 
 /**
  * Creates a private gist containing a single JSON file
@@ -19,15 +19,15 @@ const createGist = (token: string): Promise<Object> => {
       body: {
         files: {
           'modules.json': {
-            content: JSON.stringify({})
-          }
-        }
-      }
+            content: JSON.stringify({}),
+          },
+        },
+      },
     })
-      .then(result => {
+      .then((result) => {
         resolve(result.body);
       })
-      .catch(err => {
+      .catch((err) => {
         reject(err);
       });
   });
@@ -53,15 +53,15 @@ const updateGist = (
       body: {
         files: {
           'modules.json': {
-            content: JSON.stringify(packages)
-          }
-        }
-      }
+            content: JSON.stringify(packages),
+          },
+        },
+      },
     })
-      .then(result => {
+      .then((result) => {
         resolve(result.body);
       })
-      .catch(err => {
+      .catch((err) => {
         reject(err);
       });
   });
@@ -78,12 +78,12 @@ const readGist = (token: string, gistId: string): Promise<Object> => {
   return new Promise((resolve, reject) => {
     gist(`${endpoint}/${gistId}`, {
       token: token,
-      method: 'GET'
+      method: 'GET',
     })
-      .then(result => {
+      .then((result) => {
         resolve(result.body.files['modules.json']);
       })
-      .catch(err => {
+      .catch((err) => {
         reject(err);
       });
   });
@@ -92,5 +92,5 @@ const readGist = (token: string, gistId: string): Promise<Object> => {
 module.exports = {
   create: createGist,
   update: updateGist,
-  read: readGist
+  read: readGist,
 };

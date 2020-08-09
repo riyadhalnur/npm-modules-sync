@@ -7,5 +7,5 @@ const gistContent = { hey: true, hello: 'world' };
 module.exports = {
   token: token,
   gistId: gistId,
-  gistContent: gistContent
+  gistContent: gistContent,
 };

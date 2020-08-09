@@ -11,10 +11,10 @@ const execa = require('execa');
 const getModules = (): Promise<Object | string> => {
   return new Promise((resolve, reject) => {
     execa('npm', ['ls', '-g', '--depth=0', '--json=true'])
-      .then(result => {
+      .then((result) => {
         let parsedResult = JSON.parse(result.stdout);
         let packages = Object.keys(parsedResult.dependencies).filter(
-          i => i !== 'npm' && i !== 'npm-modules-sync'
+          (i) => i !== 'npm' && i !== 'npm-modules-sync'
         );
 
         if (packages.length === 0) {
@@ -25,7 +25,7 @@ const getModules = (): Promise<Object | string> => {
 
         resolve(JSON.parse(result.stdout));
       })
-      .catch(err => reject(err.stderr));
+      .catch((err) => reject(err.stderr));
   });
 };
 
@@ -40,16 +40,18 @@ const installModules = (packages: Object): Promise<string> => {
     let args = ['install', '-g'];
 
     Object.keys(packages.dependencies)
-      .filter(i => i !== 'npm' && i !== 'npm-modules-sync')
-      .map(el => args.push(`${el}@${packages['dependencies'][el]['version']}`));
+      .filter((i) => i !== 'npm' && i !== 'npm-modules-sync')
+      .map((el) =>
+        args.push(`${el}@${packages['dependencies'][el]['version']}`)
+      );
 
     execa('npm', args)
-      .then(result => resolve(result.stdout))
-      .catch(err => reject(err.stderr));
+      .then((result) => resolve(result.stdout))
+      .catch((err) => reject(err.stderr));
   });
 };
 
 module.exports = {
   get: getModules,
-  install: installModules
+  install: installModules,
 };

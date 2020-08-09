@@ -38,13 +38,13 @@ Read the complete documentation ${emoji.get(
     flags: {
       token: {
         type: 'string',
-        alias: 't'
+        alias: 't',
       },
       id: {
         type: 'string',
-        alias: 'i'
-      }
-    }
+        alias: 'i',
+      },
+    },
   }
 );
 

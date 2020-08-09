@@ -6,5 +6,5 @@ const pkg = require('../package.json');
 
 module.exports = new Configstore({
   configName: pkg.name,
-  projectName: pkg.name
+  projectName: pkg.name,
 });
