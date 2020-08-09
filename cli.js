@@ -28,11 +28,9 @@ Examples
   $ npm-sync upload
   $ npm-sync up
 
-Read the complete documentation ${emoji.get(
+Read the more at ${emoji.get(
     'book'
-  )} at https://github.com/riyadhalnur/npm-modules-sync/blob/master/docs/docs.md ${emoji.get(
-    'rocket'
-  )}.
+  )} at https://github.com/riyadhalnur/npm-modules-sync ${emoji.get('rocket')}.
 `,
   {
     flags: {
@@ -47,8 +45,6 @@ Read the complete documentation ${emoji.get(
     },
   }
 );
-
-require('tabtab')().start();
 
 updateNotifier({ pkg }).notify();
 sync(cli.input[0], cli.flags);

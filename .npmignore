@@ -58,3 +58,5 @@ jspm_packages
 
 # Test folder
 tests
+
+.vscode
