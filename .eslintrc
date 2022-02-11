@@ -3,7 +3,10 @@
     "plugin:prettier/recommended",
     "plugin:flowtype/recommended"
   ],
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false
+  },
   "rules": {
     "prettier/prettier": ["error", {
       "singleQuote": true
