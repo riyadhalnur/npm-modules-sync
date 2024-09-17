@@ -57,12 +57,12 @@
   },
   "dependencies": {
     "chalk": "5.0.0",
-    "conf": "10.1.1",
+    "conf": "12.0.0",
     "execa": "6.0.0",
     "gh-got": "9.0.0",
     "listr": "0.14.3",
-    "meow": "10.1.2",
+    "meow": "12.1.0",
     "node-emoji": "1.11.0",
-    "update-notifier": "5.1.0"
+    "update-notifier": "7.3.0"
   }
 }
